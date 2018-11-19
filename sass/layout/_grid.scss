@@ -1,6 +1,5 @@
 .row {
 	max-width: $grid-width;
-	background-color: #eee;
 	margin: 0 auto;
 	
 
@@ -11,7 +10,6 @@
 	@include clearfix;
 
 	[class^="col-"] {
-		background-color: #AE86C7;
 		float: left;
 		// padding: 1rem; add padding to make thicker!
 		// color: #FFF; changed colour to make it pretty

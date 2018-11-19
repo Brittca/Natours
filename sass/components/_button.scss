@@ -9,7 +9,7 @@
 		border-radius: 10rem;
 		transition: all .2s;
 		position: relative;
-		font-size: 1.6rem;
+		font-size: $default-font-size;
 	}
 
 	&:hover {
@@ -55,4 +55,36 @@
 	}
 }
 
+.btn-text {
+	&:link,
+	&:visited, {
+		font-size: $default-font-size;
+		color: $color-primary;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $color-primary;
+		padding: 3px;
+		transition: all .2s;
+	}
+		// creating the button: color is primary colour for website, inline block, remove underline w/ none
+		// for decoration and create a BORDER-BOTTOM to allow for an underline below the text on a border, to
+		// give it some spacing. 3px padding gives the bottom border space below the text. 
 
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+		box-shadow: 0 1rem 2rem rgba($color-black, .15);
+		transform: translateY(-2px);
+	}
+
+		// transform translateY moves the BUTTON UPWARDS WHEN SOMEONE CLICKS IT! 
+		// makes the buttom WHITE when you hover and generates a shadow effect
+
+	&:active {
+		box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+		transform: translateY(0);
+	}
+
+		// transform translateY then REDUCES the amount of shadow slightly (.5rem and 1 rem) after clicking, 
+		// then drops back down to the original position.
+}
