@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
+        <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
@@ -29,6 +29,98 @@
                 </div>
 
         </header>
+
+        <main>
+
+            <section class="section-about">
+                <div class="u-center-text u-margin-bottom-large">
+                    <!-- ^ utility classes .... used ONLY TO CENTER THE TEXT FOR THIS DIV! Also, since this parent to H2 is set to 'inline: center; then the inline block inside is treated as text and also centered'  **** second class = margin of 80px or 8rem to the bottom of an element! -->
+                    <h2 class="heading-secondary">
+                        Exciting Tours for Adventurous People
+                    </h2>
+                </div>
+                    <div class="row">
+                        <div class="col-1-of-2">
+                            <h3 class="heading-tertiary u-margin-bottom-small">
+                            <!-- h3.heading-tertiary in EMMET -->
+                            You're going to fall in love with nature
+                            </h3>
+                            <p class="paragraph">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ut cumque, a libero eaque modi molestias facilis atque aperiam. At similique ea libero ipsam tempore, ipsum non ratione voluptatem rem!
+                            </p>
+
+                            <h3 class="heading-tertiary u-margin-bottom-small">
+                            <!-- h3.heading-tertiary in EMMET -->
+                            Live adventures like you never have before
+                            </h3>
+                            <p class="paragraph">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed culpa soluta numquam vel maxime earum libero minus nesciunt quisquam nisi iure.
+                            </p>
+
+                            <a href="#" class="btn-text">
+                                Learn More &rarr; 
+                            </a>
+                                <!-- // '&rarr' creates the ARROW on the button  -->
+
+                        </div>
+                            
+                        
+                     <div class="col-1-of-2">
+                            <div class="composition">
+                                <img src="img/nat-1-large.jpg" alt="photo 1" class="composition__photo composition__photo--p1">
+                                <img src="img/nat-2-large.jpg" alt="photo 2" class="composition__photo composition__photo--p2">
+                                <img src="img/nat-3-large.jpg" alt="photo 3" class="composition__photo composition__photo--p3">
+                            </div> 
+                             <!-- EMMET FOR THIS SECTION .composition>(img.composition__photo.composition__photo--p1)*3 
+                             Each image shares THE SAME ELEMENT CLASS AND EACH OF THEM HAS A DIFFERENT MODIFIER-->
+                     </div>
+                </div>
+                        <!--  EMMET EXAMPLE: .text = div class named 'test' - press 'TAB' , and VOILA! Emmet is the best!!!  
+                              .section.section-about + 'TAB' = created this section! 
+                        -->
+            </section>
+
+            <section class="section-features">
+
+                <div class="row">
+
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box__icon icon-basic-world"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Explore the World </h3>
+                            <p class="feature-box__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nulla ducimus delectus laboriosam ratione eos.</p>
+                        </div>
+                    </div>
+
+                     <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box__icon icon-basic-compass"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Meet Nature </h3>
+                            <p class="feature-box__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nulla ducimus delectus laboriosam ratione eos.</p>
+                        </div>
+                    </div>
+
+                     <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box__icon icon-basic-map"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Find Your Way </h3>
+                            <p class="feature-box__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nulla ducimus delectus laboriosam ratione eos.</p>
+                        </div>
+                    </div>
+
+                     <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <i class="feature-box__icon icon-basic-heart"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Live a Healthier </h3>
+                            <p class="feature-box__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nulla ducimus delectus laboriosam ratione eos.</p>
+                        </div>
+                    </div>
+
+                </div> 
+
+            </section>
+
+        </main>
 
 <!-- <section class="grid-test">
 

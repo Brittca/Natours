@@ -1,0 +1,63 @@
+.composition {
+	position: relative;
+
+	&__photo {
+		width: 55%;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+		border-radius: 2px;
+		position: absolute;
+		z-index: 10;
+		transition: all .2s;
+		outline-offset: 2rem;
+
+		&--p1 {
+			left: 0;
+			top: -2rem;
+		}
+
+		&--p2 {
+			right: 0;
+			top: 2rem;
+		}
+
+		&--p3 {
+			left: 20%;
+			top: 10rem;
+		}
+
+		&:hover {
+			outline: 1.5rem solid $color-primary;
+			transform: scale(1.05) translateY(-5px);
+			box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+			z-index: 20;
+		}
+
+	}
+
+	&:hover &__photo:not(:hover) {
+		transform: scale(.95);
+
+	}
+}
+
+		// the -2rem setting allows the image to be situated higher than the text to the left
+// position: relative; allows for the stack of photos to all be aligned to the top left corner of the column.
+// position: absolute; allows elements to be placed according to a reference (.composition element).
+
+// ****** ALWAYS DEFINE WIDTH OF IMAGES IN PERCENTAGES TO HELP W/ RESPONSIVE DESIGN ******
+
+// on &:HOVER - the box shadow gets larger and darker w/ the changes from &__photo 
+// transform: scale(1.05) translateY(-5px); makes the image get a bit bigger and move up on hover
+
+// WHAT IS Z-INDEX? -- the image(or hover in this case) with the higher z-index is always displayed on top 
+
+ // HOW TO OUTLINE? the 'outline' creates an outline around the image, to create the sense of a gap between, 
+ // we add an 'outline offset' to the parent element. 
+ // 'transition: all .2s' slows down the animation effect so it isn't so abrupt. 
+
+// &:hover &__photo:not(:hover) = composition:hover composition__photo:not(hover);
+// This says when we hover the composition then select the composition photo that is NOT hovered...
+// it scales down the other TWO photos that are NOT hovered to .95, per the transfor:scale();
+
+
+
