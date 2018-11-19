@@ -4,7 +4,7 @@ body {
 	line-height: 1.7;
 	color: $color-grey-dark;
 	padding: 3rem;
-}
+} 
 
 .heading-primary {
 	color: $color-white;
@@ -33,3 +33,47 @@ body {
 		animation: moveInRight 1s ease-out;
 	}
 }
+
+.heading-secondary {
+	font-size: 3.5rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: inline-block;
+	// ^ this makes the block of the colour gradient only show where the text is visable on the block. 
+	background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	-webkit-background-clip: text; 
+	// clips the background EXACTLY WHERE THE TEXT IS! allows you to set gradients on live text in CSS. 
+	color: transparent;
+	// set the colour to transparent to allow the gradient 'behind' the text to come 'forward'
+	letter-spacing: 2px;
+	// spaces the letter out a little bit for visability
+	transition: all .2s;
+	// slows down the transform on hover (coded below) to make the transition smoother
+
+	&:hover {
+		transform: skewY(2deg) skewX(15deg) scale(1.1);
+		// skews the text ON HOVER (used sass to compile the class name) 2 degrees on the Y axis, 15deg on X
+		// scale makes it a little larger on hover to more effect
+		text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+		// ** translates to 5px X direction 10px in Y direction and 20px blur , black colour and 20% opacity**
+
+	}
+}
+
+
+.heading-tertiary {
+	font-size: $default-font-size;
+	font-weight: 700;
+	text-transform: uppercase;
+
+}
+
+.paragraph {
+	font-size: $default-font-size;
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+}
+// selecting all paragraphs EXCEPT THE LAST ONE and giving them a bottom margin
+// 30 pixel bottom margin for all paragraphs BUT last child. 

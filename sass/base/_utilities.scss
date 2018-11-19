@@ -1,0 +1,23 @@
+
+// ALIGNMENTS //
+.u-center-text {
+	text-align: center;
+}
+
+// MARGINS // 
+
+.u-margin-bottom-small {
+	margin-bottom: 1.5rem;
+}
+// small bottom margin class (secondary class in the html) of 15 pixels
+
+.u-margin-bottom-medium {
+	margin-bottom: 4rem;
+}
+// medium bottom margin class of 40 pixels 
+
+.u-margin-bottom-large {
+	margin-bottom: 8rem;
+}
+//  large bottom margin of 80px (for use with large header text spacing)
+// ^ defining specific margins that we want for certain elements on the page using utility classes 
