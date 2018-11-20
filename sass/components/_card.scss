@@ -1,0 +1,214 @@
+
+// FUNCTIONALITY //
+
+.card {
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position: relative;
+	height: 52rem;
+
+	&__side {
+		height: 52rem;
+		transition: all .8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: 3px;
+		overflow: hidden;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+		&--front {
+			background-color: $color-white;
+
+		}
+
+		&--back {
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, 
+					$color-secondary-light, 
+					$color-secondary-dark);
+			}
+
+			&-2 {
+				background-image: linear-gradient(to right bottom, 
+					$color-primary-light, 
+					$color-primary-dark);
+			}
+
+			&-3 {
+				background-image: linear-gradient(to right bottom, 
+					$color-tertiary-light, 
+					$color-tertiary-dark);
+			}
+		}
+	}
+
+
+	&:hover &__side--front {
+		transform: rotateY(-180deg);
+	}
+
+	&:hover &__side--back {
+		transform: rotateY(0);
+	}
+
+
+	// FRONT SIDE STYLING //
+
+	&__picture {
+		background-size: cover;
+		height: 23rem;
+		background-blend-mode: screen;
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+
+
+		&--1 {
+			background-image: linear-gradient(to right bottom, 
+				$color-secondary-light, 
+				$color-secondary-dark), 
+			    url(../img/nat-5.jpg);
+		}
+
+		&--2 {
+			background-image: linear-gradient(to right bottom, 
+				$color-primary-light, 
+				$color-primary-dark), 
+			    url(../img/nat-6.jpg);
+		}
+
+		&--3 {
+			background-image: linear-gradient(to right bottom, 
+				$color-tertiary-light, 
+				$color-tertiary-dark), 
+			    url(../img/nat-7.jpg);
+		}
+	}
+
+
+	&__heading {
+		font-size: 2.8rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		text-align: right;
+		color: $color-white;
+		position: absolute;
+		top: 12rem;
+		right: 2rem;
+		width: 75%;
+
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+
+		&--1 {
+			background-image: linear-gradient(to right bottom, 
+		    rgba($color-secondary-light, .85), 
+		    rgba($color-secondary-dark, .85));
+		}
+
+		&--2 {
+			background-image: linear-gradient(to right bottom, 
+		    rgba($color-primary-light, .85), 
+		    rgba($color-primary-dark, .85));
+		}
+
+		&--3 {
+			background-image: linear-gradient(to right bottom, 
+		    rgba($color-tertiary-light, .85), 
+		    rgba($color-tertiary-dark, .85));
+		}
+	}
+
+	&__details {
+		padding: 3rem;
+
+		ul {
+			list-style: none;
+			width: 80%;
+			margin: 0 auto;
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid $color-grey-light-2;
+				}
+			}
+		}
+	}
+
+	// BACK SIDE STYLING //
+
+	&__cta {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 90%;
+		text-align: center;
+	}
+	
+	&__price-box {
+		text-align: center;
+		color: $color-white;
+		margin-bottom: 8rem;
+	}
+
+	&__price-only {
+		font-size: 1.4rem;
+		text-transform: uppercase;
+	}
+
+	&__price-value {
+		font-size: 6rem;
+		font-weight: 100;
+	}
+
+}
+
+// OVERFLOW: HIDDEN; is used to hide the overflow of the background image (edges of the card)
+// ^ "where the corners are, the image should not be"
+// BACKFACE VISABILITY HIDES THE BACK FACING SIDE OF AN ELEMENT! it prevents overlap when you hover (rotate)
+// YOU MUST SPECIFY THE CARD HEIGHT as well as the &__side HEIGHT, or the 'perspective' will collapse 
+// ^ also with animations add 'ease' to make it smoother to your transition property. 
+
+// box-decoration-break: clone; -- applies all the declarations in the selector (padding) to all of the boxes in the element
+// this gives us space around the 'a' in SEA, and the 'r' in explorer so it's all even! 
+
+// when building the card__details section, 'width: 80' makes sure it doesn't fill the full space of the card
+
+// padding on the __details section adds some space to the beginning of the list
+// the WIDTH in the 'ul' needs to be centered in the element, so we use MARGIN: 0 AUTO;
+ // - CENTERING A BLOCK ELEMENT INSIDE A BLOCK ELEMENT ^^^^  left and right 'auto' sets the margins auto by the browser
+
+// 'cta' = CALL TO ACTION (for the box)
+//  position: absolute;
+//  top: 50%;
+//  left: 50%;
+//  transform: translate(-50%, -50%); 
+//  ^^ This centers all elements in the BACK OF THE CARD 
+
+//        border-top-left-radius: 3px;
+//        border-top-right-radius: 3px; 
+//  We add ^ because the top corners setting gets erased w/ the 'clip path', so we set manually __picture
+
+// perspective property MUST BE ON THE PARENT --- child for the rotation element (use a huge number for this, i.e 1500px)
+// ^^ the lower the value for the 'perspective', the more dramatic the rotation/transform effect
+// -moz- prefix makes the animation work in Firefox as well. 
+
+// .card is the BLOCK , card__side is the ELEMENT in BEM notation
+
+//.card:hover (when you hover the card) .card__side is transformed on Y and the effect takes place
+// height = height of the card, transition is how long the card takes to spin 180degrees on the Y axis on hover.
