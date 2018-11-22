@@ -1,0 +1,229 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+/*the font size is the browser standard (16) divided by the 10px we want to use. = 62.5% of 100% (16px)*/
+/*set the root font-size in the 'html' selector and then use 'rem' to set all font sizes thereafter*/
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	/*font-size: 16px;*/
+	line-height: 1.7;
+	color: #777;
+	padding: 3rem;
+}
+
+.header	{
+	height: 90vh;
+	background-image: linear-gradient(to right bottom, 
+		rgba(129, 214, 114, .8),  
+		rgba(40, 181, 134, .8)), 
+		url(../img/hero.jpg);
+	/*^ specify a gradient BEFORE the image and use HEX# to indicate colours! 
+		^ specify 'to right' or 'to bottom' to specify the direction of the gradient! */
+	background-size: cover; 
+	/*^ Fills the image to the size of the window! */
+	background-position: top;
+    /*	^ Keeps the image aligned to the top of the page when changing size of the page!*/	
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	position: relative;
+    /*	the reference to which top/left (below) are referencing
+    	- it is the parent of all classes within itself (Header) 
+    	- this is where we count the pixels from! */
+}
+
+.logo-box {
+	position: absolute;
+	top: 4rem;
+	left: 4rem;
+}
+
+.logo {
+	height: 3.5rem;
+	/*	we don't need to set the width and the height is auto determined by the browser.*/
+}
+
+/*.logo:hover	{
+	animation: moveInRight 1s ease-out;
+}*/
+
+.text-box {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	/*	moves the item to the middle of the x,y axis of the page
+		- in relation to the PARENT element*/
+	transform: translate(-50%, -50%);
+	/*	how to place an image/text/etc directly in the middle of a page. keeps it responsive!
+		- This is in relation to the element itself - makes it exactly center*/
+	text-align: center;
+}
+
+.heading-primary {
+	color: #FFF;
+	text-transform: uppercase;
+	backface-visibility: hidden;
+	/*text-align: center;*/
+	/*^this keeps your animations for shaking */
+	margin-bottom: 6rem;
+}
+
+.heading-primary-main {
+	display: block;
+	/*	use this to make text display on seperate lines! 
+		a block occupies 100% of the width set */
+	font-size: 6rem;
+	font-weight: 400;
+	letter-spacing: 3.5rem;
+	text-align: center;
+	animation-name: moveInLeft;
+	animation-duration: 1s;
+	/*these are the only properties required for an annimation to work!*/
+	animation-timing-function: ease-out;
+	/*animation-iteration-count: 3;*/
+	/*animation-delay: 3s;*/
+}
+
+.heading-primary-sub {
+	display: block;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1.75rem;
+	animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-10rem);
+		/* These are the only 2 optomized properties for browser performance,
+		  translateX = left to right annimation direction,
+		  translateY = top to bottom annimation direction. */
+	}
+	80% {
+		transform: translateX(1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+		/*translate 0 = look like the final state*/
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+		/* These are the only 2 optomized properties for browser performance,
+		  translateX = left to right annimation direction,
+		  translateY = top to bottom annimation direction. */
+	}
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+		/*translate 0 = look like the final state*/
+	}
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+		/*to move this down, it's a positive value*/
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+		/*translate 0 = look like the final state*/
+	}
+}
+
+.btn:link,
+.btn:visited {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1.5rem 4rem;
+	/*special state of the button selector 
+	  seudo class ^ how to style elements under special conditions (clicking/checkboxes, etc)*/
+	display: inline-block;
+	/*^ inline elements are default for text, remember to make it it's own block line!
+	    use if you want to give width/height to elements */
+	border-radius: 10rem;
+	/*how to add rounded corners to your button!*/
+	transition: all .2s;
+	position: relative;
+	font-size: 1.6rem;
+
+}
+
+.btn:hover {
+	transform: translateY(.3rem);
+	/*we want the button to move up 3 pixels on the Y axis (bottom to top) on hover*/
+	box-shadow: 0 1rem 2rem rgba(0,0,0, .2);
+	/*specifies the shadow distance/size (X,Y, blur size, color ... x = left/right y=up/down)*/
+}
+
+.btn:active {
+	transform: translateY(-1px);
+	/*this makes the button move down 1px upon clicking!*/
+	box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+}
+
+.btn-white {
+	background-color: #FFF;
+	color: #777;
+	padding: 15px 40px;
+}
+
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	/*psuedo element is treated like a child of the parent element */
+	border-radius: 10rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all .4s;
+}
+
+.btn-white::after {
+	background-color: #fff;
+}
+
+.btn:hover::after {
+	transform: scaleX(1.5) scaleY(1.6);
+	/*two dimensional transformation applied to the background button feature to make it 'pop'*/
+	opacity: 0;
+	/*^ set opacity to 0 to make it fade away after you first hover*/
+}
+
+.btn-animated {
+	animation: moveInBottom .5s ease-out .75s;
+	/*  ***^animation name, animation duration, animation timing function, animation delay***  */
+	animation-fill-mode: backwards;
+	/*^ makes the 0% opacity style set in the @keyframe to be applied BEFORE the annimation starts!*/
+}

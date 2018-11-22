@@ -1,0 +1,29 @@
+.bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	opacity: .15;
+	overflow: hidden;
+
+	&__content {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+
+	}
+
+}
+
+// SET 'SECTION.STORIES' IN _HOME.SCSS TO 'POSITION:RELATIVE;' so this works after you set the postion 
+// variables for .bg-video!! 
+
+// set a low NEGATIVE 'z-index' to be sure the video is behind every other element in the section! 
+
+// selecting the CONTENT ITSELF to make it stay in the container of the website using &__content 
+
+// object-fit: cover; - the element (video) will fill the entire PARENT while still maintaining it's ratio!! :)
+// it's like working w/ background images, but instead it works w/ HTML elements(videos, images)
+// use OVERFLOW: HIDDEN; to hide the remaining area of the video (left and right) that is not clipped at first w/ the cover!

@@ -36,13 +36,50 @@
 // is no gap in the design.  
 
 .section-tours {
-	background-color: $color-grey-light-1;
+	background-color: $color-grey-light-1; 
 	padding: 25rem 0 15rem 0;
 	margin-top: -12rem;
-
-}
+} 
 
 // 	transform: skewY(-7deg);
 
 // 	& > * {
 // 		transform: skewY(7deg);
+
+.section-stories {
+	position: relative;
+	padding: 15rem 0;
+} 
+
+
+.section-book {
+	padding: 15rem 0;
+	background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+	background-image: linear-gradient(105deg,
+	                  rgba($color-white, .9) 0%,
+	                  rgba($color-white, .9) 50%,
+	                  transparent 50%) ,
+	                  url(../img/nat-10.jpg);
+	background-size: 100%;
+	border-radius: 3px;
+	box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+	height: 50rem; 
+
+	&__form {
+		width: 50%;
+		padding: 6rem;
+	}
+}
+
+// adding the 'linear-gradient , 90deg and RGBA properties' on top of the URL allow us to make that slick angular gradient
+// that is on top of the background image! 
+// you can specify percentages (0% -for the white at the beginning) - at different points of the gradient which colour there should be.
+// ---- and then we add 50% to the second color so the gradient doesn't go fully across, stops halfway and fills the color from 50% forward.
+// what we setup above makes it WHITE for 50% at 105deg and then ORANGE (OR TRANSPARENT VALUE) after 50% 
+
+
+// &__form - set to 50% to have the form occupy 50% of the book box 

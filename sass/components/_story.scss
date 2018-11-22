@@ -1,0 +1,75 @@
+.story {
+	width: 75%;
+	margin: 0 auto;
+	box-shadow: 0 3rem 6rem rgba($color-black, .1);
+	background-color: rgba($color-white, .6);
+	border-radius: 3px;
+	padding: 6rem;
+	padding-left: 9rem;
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
+
+	// background-color: rgba($color-white, .6); ensures that the story blocks have some opacity 
+
+	&__shape {
+		width: 15rem;
+		height: 15rem;
+		float: left;
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+		transform: translateX(-3rem) skewX(12deg);
+		position: relative;
+	}
+
+
+	&__img {
+		height: 100%;
+		transform: translateX(-4rem) scale(1.4);
+		backface-visibility: none;
+		transition: all .5s;
+	}
+
+	&__text {
+		transform: skewX(12deg);
+	}
+
+	&__caption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 20%);
+		color: $color-white;
+		text-transform: uppercase;
+		font-size: 1.7rem;
+		text-align: center;
+		opacity: 0;
+		transition: all .5s;
+		backface-visibility: hidden;
+
+	}
+
+	&:hover &__caption {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover &__img {
+		transform: translateX(-4rem) scale(1);
+		filter: blur(3px) brightness(80%);
+
+
+	}
+}
+
+// shape-outside, list the RADIUS of the circle first, (half the width/height of the shape)
+// it must also be FLOATED and requires a HEIGHT and WIDTH 
+// 'shape-outside' defines where the content flows aronud the element... if we want the element to LOOK like the cicle, use clip-path
+// instead of using margin/padding to define the space by the right of the circle, use TRANSFORM: TRANSLATEX(03rem); - or 30 pixels of right side padding
+// added 'padding-left: 9rem' in the .story element because we needed left sided offset to the above transform: translate ^
+// *** YOU CANNOT HAVE TWO TRANSFORMS IN ONE ELEMENT IN CSS 
+// how to fix? add 'transform: skewX(12deg);' property to the &___shape transform property. Also add 'transform: skewX(12deg);' to &__text
+
+// 'filter' property allows you to apply effects to the elements! 
+// filter: blur(3px) brightness(80%); = 3px blur and 80% (darkening) opacity, values over 100% = brighter
