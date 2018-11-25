@@ -1,0 +1,125 @@
+.navigation {
+
+	&__checkbox {
+		display: none;
+
+	}
+
+
+	&__button {
+		background-color: $color-white;
+		height: 7rem;
+		width: 7rem;
+		position: fixed;
+		top: 6rem;
+		right: 6rem;
+		border-radius: 50%;
+		z-index: 2000;
+		box-shadow: 0 1rem 3rem rgba($color-black, .1);
+	}
+
+	// box-shadow here adds a very subtile background shadow to the Navigation
+
+
+	&__background {
+		height: 6rem;
+		width: 6rem;
+		border-radius: 50%;
+		position: fixed;
+		top: 6.5rem;
+		right: 6.5rem;
+		background-image: radial-gradient($color-primary-light, $color-primary-dark);
+		z-index: 1000;
+		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+		// cubic-bezier transform function makes the text come in from the LEFT when checkbox is clicked 
+
+		// transform: scale(80);
+	}
+
+	//tranform:scale(50); makes the green circle GROW huge upon clicking the navigation, animation effect. 
+
+
+	&__nav {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1500; 
+
+		opacity: 0;
+		width: 0;
+		transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	// the navigation starts at the top right of the 'vh - viewport' and spans over the entire viewport
+	// set the z-index for the navigation to be ABOVE the background but not more than the top nav button. 
+	// setting opacity and width to 0 assures the nav is hidden until we hit the 'checkbox'
+
+
+	&__list {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		list-style: none;
+		text-align: center;
+		width: 100%;
+	}
+
+
+	&__item {
+		margin: 1rem;
+	}
+
+// the margin setting here gives some spaces between each of the link elements in the navigation. 
+
+	&__link {
+		&:link,
+		&:visited {
+			display: inline-block;
+			font-size: 3rem;
+			font-weight: 300;
+			padding: 1rem 2rem;
+			color: $color-white;
+			text-decoration: none;
+			text-transform: uppercase;
+
+			background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+			background-size: 240%;
+			transition: all .4s;
+
+			span {
+				margin-right: 1.5rem;
+				display: inline-block;
+			}
+
+		}
+
+		&:hover,
+		&:active {
+			background-position: 100%;
+			color: $color-primary;
+			transform: translateX(1rem);
+
+		}
+
+		// as we hover the background shifts to the left side because the position is at 100% 
+
+	}
+
+	&__checkbox:checked ~ &__background {
+		transform: scale(80);
+	}
+
+	// in order to do the checkbox 'hack' you must use the 'checked' pseudo class and select the general sibling __background (and not the Adjacent sibling)
+	
+	&__checkbox:checked ~ &__nav {
+		opacity: 1;
+		width: 100%;
+	}
+
+	// the opacity is no longer 0 and the width is no longer 0, so we update that so the nav shows up once checkbox is clicked
+
+}
+
