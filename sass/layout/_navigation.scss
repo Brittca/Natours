@@ -16,6 +16,8 @@
 		border-radius: 50%;
 		z-index: 2000;
 		box-shadow: 0 1rem 3rem rgba($color-black, .1);
+		text-align: center;
+		cursor: pointer;
 	}
 
 	// box-shadow here adds a very subtile background shadow to the Navigation
@@ -108,6 +110,8 @@
 
 	}
 
+
+ // FUNCTIONALITY 
 	&__checkbox:checked ~ &__background {
 		transform: scale(80);
 	}
@@ -121,5 +125,61 @@
 
 	// the opacity is no longer 0 and the width is no longer 0, so we update that so the nav shows up once checkbox is clicked
 
+
+// ICON
+
+	&__icon {
+		position: relative;
+		margin-top: 3.5rem;
+
+		&,
+		&::before,
+		&::after {
+			width: 3rem;
+			height: 2px;
+			background-color: $color-grey-dark-3;
+			display: inline-block;
+
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			transition: all .2s;
+		}
+
+		&::before { top: -.8rem; }
+		&::after { top: .8rem; }
+	}
+
+	&__button:hover &__icon::before {
+		top: -1rem;
+	}
+
+	&__button:hover &__icon::after {
+		top: 1rem;
+	}
+
+	&__checkbox:checked + &__button &__icon {
+		background-color: transparent;
+	}
+	// when the checkbox is selected, then we select it's brother the button (adjacent sibling +), and then we select the buttons child which is the icon.
+	// changing the background-color to transparent, makes the icon elements invisible
+
+	&__checkbox:checked + &__button &__icon::before {
+		top: 0;
+		transform: rotate(135deg);
+	}
+
+	&__checkbox:checked + &__button &__icon::after {
+		top: 0;
+		transform: rotate(-135deg);
+	}
+
+	// setup the before and after elements to rotate 45% (135%, 3/4 of a turn) so they  form the 'X' pattern once checkbox is selected
+	// change their position back to top: 0; in order for them to form the X and not a '>' shape
 }
 
+// anther property you can use for tranform &::before { top: -.8rem; tranford-origin: left;} - will now rotate around the left side of the element
