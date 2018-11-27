@@ -10,9 +10,15 @@
 	// set a high z-index to make sure the popup is on top of the navigation
 	opacity: 0;
 	visibility: hidden;
-	// these two settings allow the info for the popup to be visable after we use an Anchor + Target
 	transition: all .3s;
 
+		@supports(-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px)) {
+				  -webkit-backdrop-filter: blur(5px);
+				  backdrop-filter: blur(5px);
+			      background-color: rgba($color-black, .3);
+		}
+
+// these two settings allow the info for the popup to be visable after we use an Anchor + Target 
 
 	&__content {
 		@include absCenter;
